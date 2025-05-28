@@ -95,7 +95,7 @@ router.get('/:id/share', verifyToken, async (req, res) => {
     const file = rows[0]
     if (file.user_id !== req.user.uid)
       return res.status(403).json({ message: 'Unauthorized' })
-    const link = `http://localhost:4200/shared/${file.name
+    const link = `http://cosmic-taffy-ced2f0.netlify.app/shared/${file.name
       .replace('.pdf', '')
       .split('/')
       .pop()}`
@@ -157,7 +157,7 @@ router.post('/:id/share/email', verifyToken, async (req, res) => {
       return res.status(403).json({ message: 'Unauthorized' })
 
     // ✅ Generate link to open in shared-viewer
-    const shareLink = `http://localhost:4200/shared/${file.name.replace(
+    const shareLink = `http://cosmic-taffy-ced2f0.netlify.app/shared/${file.name.replace(
       '.pdf',
       '',
     )}`
